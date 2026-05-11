@@ -1,0 +1,159 @@
+{
+  "entities": {
+    "booking_node": {
+      "title": "Universal Booking Node",
+      "description": "A bookable item across any industry (Movie, Transport, Hotel, etc.)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string", "enum": ["movie", "bus", "train", "flight", "hotel", "event", "doctor", "restaurant", "turf"] },
+        "district": { "type": "string" },
+        "venue": { "type": "string" },
+        "dateTime": { "type": "string", "format": "date-time" },
+        "price": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "rating": { "type": "number" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "metadata": {
+          "type": "object",
+          "description": "Category-specific data (e.g., roomType, specialty, stops)"
+        }
+      },
+      "required": ["title", "category", "district", "price", "imageUrl"]
+    },
+    "transaction": {
+      "title": "Transaction Record",
+      "description": "A record of a completed booking and payment",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "nodeId": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "status": { "type": "string", "enum": ["completed", "failed", "pending"] },
+        "selection": { "type": "object" },
+        "isBookingForAnother": { "type": "boolean" },
+        "recipientInfo": { 
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "contact": { "type": "string" }
+          }
+        }
+      },
+      "required": ["userId", "nodeId", "title", "amount", "timestamp", "status"]
+    },
+    "vendor_request": {
+      "title": "Vendor Partnership Request",
+      "description": "A request from a business to join the platform",
+      "type": "object",
+      "properties": {
+        "businessName": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "category": { "type": "string" },
+        "contact": { "type": "string" },
+        "message": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "userId": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["businessName", "ownerName", "category", "contact", "status", "userId"]
+    },
+    "vendor": {
+      "title": "Verified Vendor",
+      "description": "A business authorized to manage inventory",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "businessName": { "type": "string" },
+        "category": { "type": "string" },
+        "approvedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "businessName", "category"]
+    },
+    "theater": {
+      "title": "Theater Venue",
+      "description": "A cinema hall or multiplex",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "city": { "type": "string" },
+        "coordinates": { 
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        },
+        "amenities": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["name", "city", "coordinates"]
+    },
+    "movie_detail": {
+      "title": "Movie Extended Details",
+      "description": "In-depth info about a movie",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "synopsis": { "type": "string" },
+        "trailerUrl": { "type": "string" },
+        "cast": { "type": "array", "items": { "type": "string" } },
+        "director": { "type": "string" },
+        "duration": { "type": "string" },
+        "genre": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["title", "synopsis"]
+    },
+    "schedule": {
+      "title": "Showtime Schedule",
+      "description": "Specific showtime for a movie at a theater",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "movieId": { "type": "string" },
+        "theaterId": { "type": "string" },
+        "time": { "type": "string" },
+        "format": { "type": "string", "enum": ["2D", "3D", "IMAX"] },
+        "price": { "type": "number" },
+        "bookedSeats": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["movieId", "theaterId", "time", "format"]
+    }
+  },
+  "firestore": {
+    "nodes": {
+      "schema": "booking_node",
+      "description": "The master repository for all bookable inventory"
+    },
+    "movie_details": {
+      "schema": "movie_detail",
+      "description": "Extended movie metadata"
+    },
+    "theaters": {
+      "schema": "theater",
+      "description": "Cinema locations"
+    },
+    "schedules": {
+      "schema": "schedule",
+      "description": "Movie showtimes"
+    },
+    "transactions": {
+      "schema": "transaction",
+      "description": "User-specific booking history"
+    },
+    "vendor_requests": {
+      "schema": "vendor_request",
+      "description": "Pending and historical partnership requests"
+    },
+    "vendors": {
+      "schema": "vendor",
+      "description": "Whitelist of users with management panel access"
+    }
+  }
+}

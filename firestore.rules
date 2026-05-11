@@ -1,0 +1,103 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default Deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == 'noorshamshshaik40@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    function isVendor() {
+      return isSignedIn() && exists(/databases/$(database)/documents/vendors/$(request.auth.uid));
+    }
+
+    function isValidVendorRequest(data) {
+      return data.businessName is string && data.businessName.size() <= 200 &&
+             data.ownerName is string && data.ownerName.size() <= 200 &&
+             data.status in ['pending', 'approved', 'rejected'] &&
+             data.userId == request.auth.uid;
+    }
+
+    function isValidNode(data) {
+      return data.title is string && data.title.size() <= 200 &&
+             data.category in ['movie', 'bus', 'train', 'flight', 'hotel', 'event', 'doctor', 'restaurant', 'turf'] &&
+             data.district is string && data.district.size() <= 100 &&
+             data.venue is string && data.venue.size() <= 300 &&
+             data.imageUrl is string &&
+             data.price is number && data.price >= 0;
+    }
+
+    match /nodes/{nodeId} {
+      allow read: if true;
+      allow write: if isAdmin();
+      allow create: if isVendor() && isValidNode(request.resource.data);
+      allow update, delete: if isVendor() && resource.data.vendorId == request.auth.uid;
+    }
+
+    function isVerified() {
+      return isSignedIn();
+    }
+
+    match /transactions/{txId} {
+      allow read: if isVerified() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isVerified() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if false;
+    }
+
+    match /vendor_requests/{requestId} {
+      allow read: if isAdmin() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      allow create: if isSignedIn() && isValidVendorRequest(request.resource.data);
+      allow update: if isAdmin();
+      allow delete: if false;
+    }
+
+    match /vendors/{vendorId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    match /movie_details/{movieId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /theaters/{theaterId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /schedules/{scheduleId} {
+      allow read: if true;
+      allow write: if isAdmin();
+      allow update: if isSignedIn() && (
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['bookedSeats'])
+      );
+    }
+
+    match /admins/{adminId} {
+      allow read: if isSignedIn();
+      allow write: if false; // Only manageable via console
+    }
+
+    match /wishlist/{wishId} {
+      allow read: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow write: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+    }
+  }
+}

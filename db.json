@@ -1,0 +1,209 @@
+{
+  "users": [
+    {
+      "id": "1778204949044",
+      "name": "Ashu",
+      "email": "ashuchinthapalli390@gmail.com",
+      "password": "$2b$10$E9QOvDV1JLGL7RlZrdlMGegf2HqqjgA76wm03xP/SvB9nufvGECdi",
+      "role": "user"
+    }
+  ],
+  "bookings": [],
+  "events": [
+    {
+      "id": "e1",
+      "title": "Mumbai-Pune Hyperloop",
+      "category": "Transportation",
+      "location": "Mumbai Terminal",
+      "date": "2024-05-10",
+      "price": 1200,
+      "city": "Mumbai",
+      "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "e2",
+      "title": "The Dark Knight: IMAX",
+      "category": "Cinema & Events",
+      "location": "Nexus Mall, London",
+      "date": "2024-05-12",
+      "price": 450,
+      "city": "London",
+      "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "e3",
+      "title": "Skyloft Penthouse",
+      "category": "Stays",
+      "location": "Sector 45, Delhi",
+      "date": "2024-06-01",
+      "price": 15000,
+      "city": "Delhi",
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "e4",
+      "title": "Private Yacht: Thames",
+      "category": "Luxury",
+      "location": "Greenwich Pier",
+      "date": "2024-05-15",
+      "price": 25000,
+      "city": "London",
+      "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&q=80&w=800"
+    },
+    {
+      "id": "e5",
+      "title": "Inception",
+      "category": "movie",
+      "location": "G7 Multiplex",
+      "date": "2024-07-15",
+      "price": 300,
+      "city": "Mumbai",
+      "image": "https://images.unsplash.com/photo-1531427186654-b6d69b3df0d7?auto=format&fit=crop&q=80&w=800",
+      "description": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O."
+    },
+    {
+      "id": "nrpt_1",
+      "title": "Sathi Leelavathi",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 250,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1200",
+      "description": "A hilarious romantic comedy that brings unexpected twists to an arranged marriage setting."
+    },
+    {
+      "id": "nrpt_2",
+      "title": "Mortal Kombat II",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 350,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?auto=format&fit=crop&q=80&w=800",
+      "description": "The ultimate tournament continues in this action-packed fantasy epic."
+    },
+    {
+      "id": "nrpt_3",
+      "title": "Kara",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 220,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?auto=format&fit=crop&q=80&w=800",
+      "description": "Dark, gritty, and fiercely intense action thriller."
+    },
+    {
+      "id": "nrpt_4",
+      "title": "Razor",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 400,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1509114397022-ed747cca3f65?auto=format&fit=crop&q=80&w=800",
+      "description": "A gripping action-thriller that keeps you on the edge of your seat."
+    },
+    {
+      "id": "nrpt_5",
+      "title": "Jetlee",
+      "category": "movie",
+      "location": "Eswar Mahal Deluxe",
+      "date": "2026-05-08",
+      "price": 200,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=800",
+      "description": "High energy action comedy to keep you entertained."
+    },
+    {
+      "id": "nrpt_6",
+      "title": "Gaayapadda Simham",
+      "category": "movie",
+      "location": "Saradambha Theatre",
+      "date": "2026-05-08",
+      "price": 180,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&q=80&w=800",
+      "description": "Intense action drama showing the rise of a wounded hero."
+    },
+    {
+      "id": "nrpt_7",
+      "title": "Ninnu Kori (2017)",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 250,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1485686531765-ba63b07845a7?auto=format&fit=crop&q=80&w=800",
+      "description": "Re-release of the beautiful romance drama."
+    },
+    {
+      "id": "nrpt_8",
+      "title": "A Film by Giri",
+      "category": "movie",
+      "location": "Sri Krishna Cinema",
+      "date": "2026-05-08",
+      "price": 150,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1533613220915-609f661a6fe1?auto=format&fit=crop&q=80&w=800",
+      "description": "A gripping thriller showing in morning and matinee shows."
+    },
+    {
+      "id": "nrpt_9",
+      "title": "Vaazha II",
+      "category": "movie",
+      "location": "Geetha Multiplex / Saradambha",
+      "date": "2026-05-08",
+      "price": 250,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1512149177596-f817c7ef5d4c?auto=format&fit=crop&q=80&w=800",
+      "description": "The thrilling sequel with intense action sequences."
+    },
+    {
+      "id": "nrpt_10",
+      "title": "Ganga: Muni 3 (4K)",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 250,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1535868463750-c78d9543614f?auto=format&fit=crop&q=80&w=800",
+      "description": "The blockbuster horror-comedy now in 4K resolution."
+    },
+    {
+      "id": "nrpt_11",
+      "title": "Krishnavataram Pt 1",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 250,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&q=80&w=800",
+      "description": "First part of the epic mythological drama."
+    },
+    {
+      "id": "nrpt_12",
+      "title": "M4M: Motive for Murder",
+      "category": "movie",
+      "location": "Geetha Multiplex (Kasu Central)",
+      "date": "2026-05-08",
+      "price": 250,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1473220464492-f01c8030ba4e?auto=format&fit=crop&q=80&w=800",
+      "description": "A tense mystery thriller keeping you guessing till the end."
+    },
+    {
+      "id": "nrpt_13",
+      "title": "Vidhi Geesina Chitram",
+      "category": "movie",
+      "location": "Eswar Mahal",
+      "date": "2026-05-08",
+      "price": 200,
+      "city": "Narasaraopet",
+      "image": "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800",
+      "description": "A heart-touching romantic saga."
+    }
+  ],
+  "notifications": []
+}

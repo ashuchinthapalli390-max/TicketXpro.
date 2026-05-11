@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;700&family=Outfit:wght@900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-secondary: #20CED6; /* Neon Teal */
+  --color-accent: #0a2a30; /* Dark Teal */
+  --color-dark: #040D0F;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
+  --font-accent: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+:root {
+  --primary: #F27D26;
+  --primary-rgb: 242, 125, 38;
+  --background: #ffffff;
+}
+
+.dark {
+  --background: #040D0F;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-gray-900 font-sans selection:bg-primary/30 antialiased overflow-x-hidden transition-colors duration-300;
+    min-height: 100vh;
+  }
+
+  .dark body {
+    @apply text-white;
+  }
+
+  .dark .bg-white {
+    @apply bg-gray-900;
+  }
+
+  .dark .text-gray-900 {
+    @apply text-white;
+  }
+
+  .dark .border-gray-100, .dark .border-gray-200 {
+    @apply border-gray-800;
+  }
+
+  h1, h2, h3 {
+    @apply font-sans tracking-tight font-bold;
+  }
+
+  /* Fluid Typography with clamp() */
+  .text-cinematic-xl { font-size: clamp(3rem, 15vw, 8rem); }
+  .text-cinematic-lg { font-size: clamp(2rem, 10vw, 5rem); }
+  .text-cinematic-md { font-size: clamp(1.5rem, 8vw, 3rem); }
+}
+
+.text-stroke {
+  -webkit-text-stroke: clamp(1px, 0.2vw, 2px) var(--color-secondary);
+  color: transparent;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur-md border border-white/10;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-orange-400 text-black font-bold uppercase px-8 py-4 rounded-sm tracking-widest transition-all active:scale-95 flex items-center justify-center gap-2;
+}
+
+.btn-secondary {
+  @apply border border-secondary/50 hover:border-secondary text-secondary font-bold uppercase px-8 py-4 rounded-sm tracking-widest transition-all active:scale-95;
+}
+
+.status-indicator {
+  @apply flex items-center gap-2 text-[10px] tracking-[0.2em] font-mono text-secondary uppercase;
+}
+
+.card-hover {
+  @apply bg-accent/20 border border-secondary/20 p-6 rounded-lg hover:border-primary transition-all cursor-pointer;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-dark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full hover:bg-primary/50;
+}
+
+/* Hide scrollbar for horizontal scrolling containers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

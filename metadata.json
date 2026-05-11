@@ -1,0 +1,6 @@
+{
+  "name": "TicketX Pro",
+  "description": "Production-ready unified booking engine with live inventory sync, secure payment integration, and cryptographically signed digital tickets.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": []
+}
